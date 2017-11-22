@@ -2,6 +2,7 @@ import React from "react";
 import InputPreview from "../components/InputPreview";
 import {connect} from "react-redux";
 import {setMessage} from "../actions/message";
+import {Link} from "react-router-dom";
 
 class App extends React.Component {
   onChange = (value) => {
@@ -9,7 +10,14 @@ class App extends React.Component {
   };
   render(){
     const {message} = this.props.messageReducer;
-    return (<InputPreview value={message} onChange={this.onChange} />);
+    return (
+      <div>
+        <InputPreview value={message} onChange={this.onChange} />
+        <Link to="/about">
+          <button>Go About</button>
+        </Link>
+      </div>
+    );
   }
 }
 
