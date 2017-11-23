@@ -21,5 +21,10 @@ class App extends React.Component {
   }
 }
 
-// TODO: check this out
+// Inject dispatch and every field in the global state
+// Don’t do this! It kills any performance optimizations because TodoApp will
+// rerender after every state change.
+// It’s better to have more granular connect() on several components in your
+// view hierarchy that each only listen to a relevant slice of the state.
+// https://github.com/reactjs/react-redux/blob/master/docs/api.md
 export default connect( state => state)(App);
